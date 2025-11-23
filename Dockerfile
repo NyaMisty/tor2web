@@ -34,10 +34,11 @@ RUN set -eux; \
       cargo \
       outils-md5 \
       luajit-dev \
+      unzip \
       zlib-dev; \
-    luarocks install \
+    luarocks --only-server https://raw.githubusercontent.com/rocks-moonscript-org/moonrocks-mirror/daab2726276e3282dc347b89a42a5107c3500567 install \
       https://raw.githubusercontent.com/jdesgats/lua-lolhtml/master/rockspecs/lolhtml-dev-2.rockspec; \
-    luarocks install lua-zlib; \
+    luarocks --only-server https://raw.githubusercontent.com/rocks-moonscript-org/moonrocks-mirror/daab2726276e3282dc347b89a42a5107c3500567 install lua-zlib; \
     apk del --no-network .build-deps; \
     rm -rf /root/.cache /root/.cargo /root/.wget-hsts
 
